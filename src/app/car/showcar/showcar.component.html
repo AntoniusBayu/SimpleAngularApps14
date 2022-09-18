@@ -1,0 +1,41 @@
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
+        (click)="AddCar()" data-keyborad="false">
+  Add Student
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">{{modalTitle}}</h5>
+        <button type="button" class="btn-close" (click)="closeClick()" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <app-add [car]="car" *ngIf="activateAddEditCarCom">
+        </app-add>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Car ID</th>
+      <th>Car Name</th>
+      <th>IsActive</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let dataItem of carList">
+      <td>{{dataItem.carid}}</td>
+      <td>{{dataItem.carname}}</td>
+      <td>{{dataItem.isactive}}</td>
+    </tr>
+  </tbody>
+</table>
